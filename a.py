@@ -22,3 +22,13 @@ print("v (lin vel)= ", v)
 print("w (ang vel) = ", w)
 
 print("dx = ", dx)
+
+stateWeight = 1
+ctrlWeight = 1
+costResiduals = np.concatenate([stateWeight * x, ctrlWeight * u])
+print("costResiduals = ", costResiduals, " ** 2 = ", costResiduals ** 2)
+cost = .5 * sum(costResiduals ** 2)
+print("cost = ", cost)
+
+model = crocoddyl.ActionModelUnicycle()
+data = model.createData()
