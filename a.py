@@ -3,6 +3,8 @@ import numpy as np
 import matplotlib.pylab as plt
 import crocoddyl
 from unicycle_utils import plotUnicycle
+import inspect
+import os
 
 x = np.random.rand(3) # états [pos_x, pos_y, yaw]
 u = np.random.rand(2) # commande [lin_vel, ang_vel]
@@ -30,5 +32,7 @@ print("costResiduals = ", costResiduals, " ** 2 = ", costResiduals ** 2)
 cost = .5 * sum(costResiduals ** 2)
 print("cost = ", cost)
 
-model = crocoddyl.ActionModelUnicycle()
+model = crocoddyl.ActionModelUnicycle() # pas trouvé où est la fonction (notebook peut etre pas à jour), unicycle.py introuvable
 data = model.createData()
+print(os.path.abspath(inspect.getfile(crocoddyl.ActionModelUnicycle)))
+print(os.path.abspath(inspect.getfile(crocoddyl.ActionModelUnicycle.createData)))
