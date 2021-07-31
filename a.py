@@ -1,4 +1,4 @@
-import matplotlib
+# import matplotlib
 import numpy as np
 import matplotlib.pylab as plt
 import crocoddyl
